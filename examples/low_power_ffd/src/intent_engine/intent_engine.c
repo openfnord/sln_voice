@@ -177,6 +177,7 @@ static uint8_t low_power_handler(TimerHandle_t pxTimer, int32_t *buf,
     case STATE_EXITING_LOW_POWER:
         asr_reset(asr_ctx);
         hold_intent_state(pxTimer);
+        led_indicate_idle();
         intent_power_state = STATE_EXITED_LOW_POWER;
         break;
     case STATE_EXITED_LOW_POWER:
